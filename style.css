@@ -12,14 +12,30 @@ body, html{
     opacity: 0 !important;
 }
 
+.resultScore{
+    position: absolute;
+    bottom: 0;
+}
+
 .testBox{
+    position: relative;
     height: 200px;
     width: 200px;
     border: 2px solid black;
     margin: 20px;
 }
 
+.testBox:hover{
+    background-color: rgba(135,206,235, 0.2);
+    cursor: pointer;
+}
+
+#wrapperLogin{
+    position: absolute;
+}
+
 #testMenuWrapper{
+    position: absolute;
     transition: opacity .5s ease-in-out;
 }
 

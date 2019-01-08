@@ -12,10 +12,16 @@ const
                 response.map((entry)=>{
                     let 
                         testDivBox = document.createElement("div"),
-                        testDivLabel = document.createElement("h3");
+                        testDivLabel = document.createElement("h3"),
+                        testDivResult = document.createElement("h5");
 
                     testDivLabel.innerHTML = entry.name;
+                    testDivResult.innerHTML = `Score: ${localStorage[entry.name] || 0} / ${entry.test.length}`;
+                    
                     testDivBox.classList.add("testBox");
+                    testDivResult.classList.add("resultScore");
+
+                    testDivLabel.appendChild(testDivResult);
                     testDivBox.appendChild(testDivLabel);
                     testMenuWrapper.appendChild(testDivBox);
                 })
