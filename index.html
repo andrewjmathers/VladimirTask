@@ -3,11 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Vladimir Dvoryaninov Test</title>
-        <link href="./style.css" rel="stylesheet" >
+        <link href="./style.css" rel="stylesheet">
     </head>
     <body>
        <div id="app">
-            <div class="invisible" id="loading"></div>
             <div id="wrapperLogin">
                 <h2 id="loginGreeting"></h2>
                 <input id="usernameInput" type="text">
@@ -15,7 +14,24 @@
                 <input id="loginContinue" type="button" value="Continue">
             </div>
             <div class="invisible" id="testMenuWrapper"></div>
+            <div class="invisible" id="testScreenWrapper">
+                <h1 class="testQuestion"></h1>
+                <input key="1" name="test" type="radio" class="answerRadio">
+                <label for="answer1" class="testQuestion"></label>
+                <input key="2" name="test" type="radio" class="answerRadio">
+                <label for="answer2" class="testQuestion"></label>
+                <input key="3" name="test" type="radio" class="answerRadio">
+                <label for="answer3" class="testQuestion"></label>
+                <input id="nextQuestion" type="button" value="next">
+            </div>
+            <div class="invisible" id="resultWrapper">
+                <input id="reviewResultButton" type="button" value="Go Back">
+                <div id="resultsList"></div>
+            </div>
+            <div class="invisible" id="loading"></div>
        </div>
+       <script src="./resultScreen.js"></script>
+       <script src="./testScreen.js"></script>
        <script src="./testMenu.js"></script>
        <script src="./loginScreen.js"></script>
     </body>
