@@ -10,7 +10,7 @@ const
             resultOutput = `<h2>Your score is: ${correct} / ${total}</h2>`,
             answers;
 
-        testResult.map((element)=>{
+        testResult.forEach((element)=>{
                 answers = `<h3>${element.question}</h3><h4>Your answer: ${element.answer}, correct: ${element.correct}</h4>`;
                 resultOutput += answers;
         });
