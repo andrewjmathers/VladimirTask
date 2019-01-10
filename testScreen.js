@@ -4,7 +4,7 @@ let
     correctAnswerCount,
     currentQuestion,
     testName,
-    testResultDetail = [];
+    testResultDetail;
 
 const 
     testScreenWrapper = document.getElementById('testScreenWrapper'),
@@ -14,9 +14,11 @@ const
     
 
     testScreen = (chosenTest) =>{
+        nextQuestion.disabled = false;
         testName = chosenTest.name;
         correctAnswerCount = 0;
         currentQuestion = 0;
+        testResultDetail = [];
 
         loading.classList.remove('invisible');
         fetch(chosenTest.url)
@@ -56,6 +58,7 @@ nextQuestion.onclick = () => {
     if(currentQuestion == responseObject.length-1){
         testScreenWrapper.classList.add("invisible");
         loading.classList.remove('invisible');
+        nextQuestion.disabled = true;
         return resultsTable(testResultDetail, correctAnswerCount, responseObject.length, testName)
     }
         

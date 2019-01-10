@@ -4,30 +4,22 @@ const
     resultsList = document.getElementById("resultsList"),
 
     resultsTable = (testResult, correct, total, name) =>{
-        resultsList.innerHTML = "";
-
+        
         localStorage[name] = `${correct} / ${total}`;
-        let totalScore = document.createElement("h2");
-        totalScore.innerHTML = `Your score is: ${correct} / ${total}`;
-        resultsList.appendChild(totalScore);
+        let 
+            resultOutput = `<h2>Your score is: ${correct} / ${total}</h2>`,
+            answers;
 
         testResult.map((element)=>{
-            let 
-                question =  document.createElement("h3"),
-                answers = document.createElement("h4");
-
-            question.innerHTML = element.question;
-            answers.innerHTML = `Your answer: ${element.answer}, correct: ${element.correct}`;
-
-            resultsList.appendChild(question);
-            resultsList.appendChild(answers);
+                answers = `<h3>${element.question}</h3><h4>Your answer: ${element.answer}, correct: ${element.correct}</h4>`;
+                resultOutput += answers;
         });
+        resultsList.innerHTML = resultOutput;
         loading.classList.add('invisible');
         resultWrapper.classList.remove("invisible");
     }
 
 reviewResultButton.onclick = () =>{
     resultWrapper.classList.add("invisible");
-    resultsList.innerHTML = "";
     loadTests();
 }

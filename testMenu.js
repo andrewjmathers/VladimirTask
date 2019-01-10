@@ -5,7 +5,8 @@ const
     apiUrl = 'https://api.myjson.com/bins/fkzhk',
 
     loadTests = () =>{
-        testMenuWrapper.innerHTML = "";
+        let testDivBox = '';
+
         loading.classList.remove('invisible');
         fetch(apiUrl)
             .then((resp)=>resp.text())
@@ -13,22 +14,11 @@ const
             .then((response)=>{
                 response.map((entry, i)=>{
                     let 
-                        testDivBox = document.createElement("div"),
-                        testDivLabel = document.createElement("h3"),
-                        testDivResult = document.createElement("h4");
-
-                    testDivLabel.innerHTML = entry.name;
-                    testDivResult.innerHTML = `Score: ${localStorage[entry.name] || "not started"}`;
-                    
-                    testDivBox.setAttribute("key", i);
-
-                    testDivBox.classList.add("testBox");
-                    testDivResult.classList.add("resultScore");
-
-                    testDivBox.appendChild(testDivResult);
-                    testDivBox.appendChild(testDivLabel);
-                    testMenuWrapper.appendChild(testDivBox);
+                        testDivLabel = `<h3>${entry.name}</h3>`,
+                        testDivResult = `<h4 class="resultScore">Score: ${localStorage[entry.name] || "not started"}</h4>`;
+                        testDivBox += `<div class="testBox" key="${i}">${testDivLabel+testDivResult}</div>`;
                 })
+                testMenuWrapper.innerHTML = testDivBox;
                 loading.classList.add('invisible');
                 testMenuWrapper.classList.remove('invisible');
                 
