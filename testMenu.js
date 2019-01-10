@@ -12,7 +12,7 @@ const
             .then((resp)=>resp.text())
             .then((resp)=>JSON.parse(resp))
             .then((response)=>{
-                response.map((entry, i)=>{
+                response.forEach((entry, i)=>{
                     let 
                         testDivLabel = `<h3>${entry.name}</h3>`,
                         testDivResult = `<h4 class="resultScore">Score: ${localStorage[entry.name] || "not started"}</h4>`;
