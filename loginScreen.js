@@ -7,8 +7,8 @@ const
 
 function loginScreen(username){
 
-    loginGreeting.innerHTML = 
-        `Welcome to the testing center, ${username || 'Stranger! <br /> Please enter your name if you wish to proceed.'}`;
+    loginGreeting.innerText = 
+    `Welcome to the testing center, ${username && username+"!" || 'Stranger! \n Please enter your name if you wish to proceed.'}`;
     
     if(username){
         usernameInput.classList.add("invisible");

@@ -37,7 +37,7 @@ const
             if(i > 3){
                 return;
             }
-            testQuestion[i].innerHTML = responseObject[currentQuestion][question];
+            testQuestion[i].textContent = responseObject[currentQuestion][question];
         });
 
 [].forEach.call(answerRadio, (radio)=>{
