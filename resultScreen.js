@@ -11,7 +11,7 @@ const
             answers;
 
         testResult.map((element)=>{
-                answers = `<h3>${element.question}</h3><h4>Your answer: ${element.answer}, correct: ${element.correct}</h4>`;
+                answers = `<h3>${element.question}</h3><h4>Your answer: ${element.answer || "none"}, correct: ${element.correct}</h4>`;
                 resultOutput += answers;
         });
         resultsList.innerHTML = resultOutput;
